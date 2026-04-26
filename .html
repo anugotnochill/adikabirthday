@@ -10,129 +10,153 @@
 
 <style>
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Playfair Display', serif;
-    overflow: hidden;
+    margin:0;
+    padding:0;
+    font-family:'Playfair Display', serif;
+    overflow:hidden;
 }
 
 /* ROTATE SCREEN */
-#rotate {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: black;
-    color: white;
-    font-size: 22px;
-    z-index: 99999;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+#rotate{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:black;
+    color:white;
+    font-size:22px;
+    z-index:99999;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
-/* SHOW ROTATE ONLY ON MOBILE PORTRAIT */
-@media only screen and (max-width: 900px) and (orientation: portrait) {
-    #rotate {
-        display: flex;
+/* MOBILE PORTRAIT */
+@media only screen and (max-width:900px) and (orientation:portrait){
+    #rotate{
+        display:flex;
     }
 
-    section {
-        display: none;
+    section{
+        display:none;
     }
 }
 
 /* MOBILE TEXT FIX */
-@media only screen and (max-width: 900px) {
-    h1 {
-        font-size: 32px;
-        letter-spacing: 3px;
+@media only screen and (max-width:900px){
+    h1{
+        font-size:32px;
+        letter-spacing:3px;
     }
 
-    h2 {
-        font-size: 14px;
+    h2{
+        font-size:14px;
     }
 
-    .frame {
-        padding: 20px;
+    .frame{
+        padding:20px;
     }
 }
 
 /* PAGES */
-section {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.8s ease;
+section{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transition:opacity .8s ease;
 }
 
-section.active {
-    opacity: 1;
-    z-index: 1;
+section.active{
+    opacity:1;
+    z-index:1;
 }
 
-/* FULL BACKGROUNDS */
-#page1 { background: url('bg1.jpg') center/cover no-repeat; }
-#page2 { background: url('bg2.jpg') center/cover no-repeat; }
-#page3 { background: url('bg3.jpg') center/cover no-repeat; }
-#page4 { background: url('bg4.jpg') center/cover no-repeat; }
-#page5 { background: url('bg5.jpg') center/cover no-repeat; }
-#page6 { background: url('bg6.jpg') center/cover no-repeat; }
+/* BACKGROUNDS */
+#page1{background:url('bg1.jpg') center/cover no-repeat;}
+#page2{background:url('bg2.jpg') center/cover no-repeat;}
+#page3{background:url('bg3.jpg') center/cover no-repeat;}
+#page4{background:url('bg4.jpg') center/cover no-repeat;}
+
+/* FULL COLLAGE SHOWS */
+#page5{
+background:url('bg5.jpg') center center/contain no-repeat;
+}
+
+#page6{background:url('bg6.jpg') center/cover no-repeat;}
 
 /* DARK OVERLAY */
-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
+section::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.35);
 }
 
 /* CONTENT */
-.frame {
-    text-align: center;
-    color: white;
-    z-index: 2;
-    max-width: 700px;
+.frame{
+text-align:center;
+color:white;
+z-index:2;
+max-width:700px;
 }
 
 /* TEXT */
-h1 {
-    font-size: 60px;
-    letter-spacing: 6px;
-    margin: 0;
+h1{
+font-size:60px;
+letter-spacing:6px;
+margin:0;
 }
 
-h2 {
-    font-size: 18px;
-    margin-top: 15px;
+h2{
+font-size:18px;
+margin-top:15px;
 }
 
-/* BUTTON */
-button {
-    margin-top: 25px;
-    padding: 10px 25px;
-    border: 1px solid white;
-    background: transparent;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
+/* GENERAL BUTTON */
+button{
+margin-top:25px;
+padding:10px 25px;
+border:1px solid white;
+background:transparent;
+color:white;
+cursor:pointer;
+transition:.3s;
 }
 
-button:hover {
-    background: white;
-    color: black;
+button:hover{
+background:white;
+color:black;
+}
+
+/* PAGE 5 FIX */
+#page5 .frame{
+background:transparent;
+backdrop-filter:none;
+-webkit-backdrop-filter:none;
+width:100%;
+height:100%;
+}
+
+#page5 button{
+position:absolute;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+padding:14px 28px;
+border-radius:30px;
+background:rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.8);
 }
 </style>
 </head>
 
 <body>
 
-<!-- ROTATE MESSAGE -->
 <div id="rotate">
-  <div>Rotate your phone 📱➡️</div>
+<div>Rotate your phone 📱➡️</div>
 </div>
 
 <audio id="music" src="bairan.mp3" loop></audio>
@@ -169,7 +193,9 @@ button:hover {
 <div class="frame">
 <h1>you mean so much to me</h1>
 <h2>IK apan abhi abhi mile h but ive never been so attached istg I LIKE YOU SO MUCH!! 💖</h2>
-<h2 style="font-size:14px;">ik this isnt enoughh but meko coding ka c tak nahi ata</h2>
+<h2 style="font-size:14px;">
+ik this isnt enoughh but meko coding ka c tak nahi ata
+</h2>
 <button onclick="go('page5')">one more thing…</button>
 </div>
 </section>
@@ -180,29 +206,6 @@ button:hover {
 <button onclick="go('page6')">wait don’t go yet</button>
 </div>
 </section>
-    <style>
-/* keep your existing bg untouched */
-
-/* remove blur */
-#page5 .frame{
-  backdrop-filter:none;
-  -webkit-backdrop-filter:none;
-  background:transparent;
-  width:100%;
-  height:100%;
-}
-
-/* move button lower center */
-#page5 button{
-  position:absolute;
-  bottom:40px;
-  left:50%;
-  transform:translateX(-50%);
-
-  padding:14px 28px;
-  border-radius:30px;
-}
-</style>
 
 <!-- PAGE 6 -->
 <section id="page6">
@@ -214,33 +217,36 @@ button:hover {
 </section>
 
 <script>
-// FULLSCREEN FUNCTION
-function openFullscreen() {
-    let elem = document.documentElement;
+function openFullscreen(){
+let elem=document.documentElement;
 
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) {
-        elem.webkitRequestFullscreen(); // Safari
-    } else if (elem.msRequestFullscreen) {
-        elem.msRequestFullscreen(); // IE
-    }
+if(elem.requestFullscreen){
+elem.requestFullscreen();
+}else if(elem.webkitRequestFullscreen){
+elem.webkitRequestFullscreen();
+}else if(elem.msRequestFullscreen){
+elem.msRequestFullscreen();
+}
 }
 
 function start(){
-    openFullscreen(); // 👈 fullscreen trigger
-    document.getElementById("music").play();
-    go("page2");
+openFullscreen();
+document.getElementById("music").play();
+go("page2");
 }
 
 function go(id){
-    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
+document.querySelectorAll("section").forEach(
+s=>s.classList.remove("active")
+);
+document.getElementById(id).classList.add("active");
 }
 
 function yesClick(){
-    document.getElementById("text").innerText="yey aagye line pe 😏💖";
-    setTimeout(()=>go("page3"),1200);
+document.getElementById("text").innerText=
+"yey aagye line pe 😏💖";
+
+setTimeout(()=>go("page3"),1200);
 }
 
 let no=document.getElementById("no");
@@ -248,20 +254,24 @@ let text=document.getElementById("text");
 let clicks=0;
 
 no.addEventListener("click",()=>{
-    clicks++;
 
-    if(clicks==1){
-        text.innerText="huh tumhari himmat kaise hui 😒";
-    }
-    else if(clicks==2){
-        text.innerText="tum ni sudhroge 😑";
-    }
-    else{
-        text.innerText="ab pakad ke dikhao ";
-        no.style.position="absolute";
-        no.style.left=Math.random()*80+"vw";
-        no.style.top=Math.random()*80+"vh";
-    }
+clicks++;
+
+if(clicks==1){
+text.innerText="huh tumhari himmat kaise hui 😒";
+}
+
+else if(clicks==2){
+text.innerText="tum ni sudhroge 😑";
+}
+
+else{
+text.innerText="ab pakad ke dikhao";
+no.style.position="absolute";
+no.style.left=Math.random()*80+"vw";
+no.style.top=Math.random()*80+"vh";
+}
+
 });
 </script>
 
